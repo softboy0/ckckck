@@ -1,0 +1,82 @@
+<!-- responsive-gif.html
+     Contoh file HTML untuk menampilkan GIF yang berulang (loop)
+     dan ukurannya menyesuaikan perangkat (responsive).
+     Cara pakai: ganti nilai `src` di <img> atau <video> dengan URL GIF/MP4 milikmu.
+-->
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HAHAHA FUCK</title>
+  <style>
+    /* Container centered dan responsif */
+    .wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* full height agar selalu di tengah */
+      padding: 1rem;
+      box-sizing: border-box;
+      background: #fafafa;
+    }
+
+    /* Gambar/gif akan menyesuaikan ukuran perangkat */
+    .responsive-gif {
+      max-width: 100%;      /* tidak melebihi lebar container */
+      width: 100%;          /* default lebar mengambil ruang tersedia */
+      height: auto;         /* mempertahankan rasio aspek */
+      display: block;
+    }
+
+    /* Batasi ukuran maksimal di layar besar (ubah sesuai kebutuhan) */
+    .card {
+      width: 100%;
+      max-width: 720px;     /* ukuran maksimum GIF di layar lebar */
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      padding: 0.75rem;
+    }
+
+    /* Responsif untuk layar sangat kecil */
+    @media (max-width: 400px) {
+      .card { padding: 0.5rem; }
+    }
+
+    /* Opsi: jika ingin GIF sebagai background yang menutupi container */
+    .bg-gif {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <!-- Pilihan A: Tampilkan file .gif langsung (GIF biasanya sudah looping bila file dibuat loop) -->
+      <!-- Ganti src dengan path/URL GIF milikmu -->
+         <video autoplay loop muted playsinline>
+          <source src="snaptik_7554982772947897608_v2.mp4" type="video/mp4">
+          Browser kamu tidak mendukung video tag.
+        </video>
+      <!--
+        Pilihan B: Jika GIFmu tidak looping atau ingin kontrol lebih baik (lebih hemat bandwidth),
+        konversi GIF ke MP4/WebM lalu gunakan tag <video> berikut.
+        Video modern biasanya lebih kecil ukuran filenya dan mendukung atribut loop/autoplay.
+      -->
+      <!--
+      <video class="responsive-gif" autoplay loop muted playsinline>
+        <source src="/path/to/your/video.mp4" type="video/mp4">
+        <source src="/path/to/your/video.webm" type="video/webm">
+         fallback -->
+      </video>
+
+    </div>
+  </div>
+</body>
+</html>
